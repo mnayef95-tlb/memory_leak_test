@@ -47,17 +47,6 @@ class VmServer {
     return null;
   }
 
-  Future<String?> invokeMethod(String targetId, String method, List<String> argumentIds) async {
-    final vms = await getVmService();
-    final mainIsolate = await findMainIsolate();
-    if (mainIsolate != null && mainIsolate.id != null) {
-      Response valueResponse = await vms.invoke(mainIsolate.id!, targetId, method, argumentIds);
-      final valueRef = InstanceRef.parse(valueResponse.json);
-      return valueRef?.valueAsString;
-    }
-    return null;
-  }
-
   Future startGCAsync() async {
     final vms = await getVmService();
     final isolate = await findMainIsolate();
