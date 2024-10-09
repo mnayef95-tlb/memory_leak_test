@@ -3,7 +3,7 @@ import 'package:integration_test/integration_test.dart';
 import 'package:memory_leak_test/main.dart';
 import 'package:vm_service/src/vm_service.dart';
 
-import 'vm/vm_service.dart';
+import 'vm/vm_server.dart';
 
 void main() {
   final vmServer = VmServer();
